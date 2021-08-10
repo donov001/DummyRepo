@@ -1,0 +1,379 @@
+{
+    "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/TestCase",
+    "Name": "CycleDemo",
+    "Version": "0.0.1",
+    "Summary": "A quick test case for demo purposes",
+    "SupportContact": "crcbricksup@microsoft.com",
+    "Metadata": {},
+    "Processor": "LeoProcessor",
+    "Steps": [
+        {
+            "Path": "{CODEPARTS}/Core/GetUtcTime/GetUtcTime.json",
+            "Documentation": "Get Test Start Time in UTC",
+            "OutputVals": {
+                "UtcTime": "$FirstTime",
+                "_StatusCode_": "OK",
+                "_ElapsedTime_": "0.50",
+                "_StatusMessage_": ""
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Core.GetUtcTime",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Get UTC Time now in RFC3339 format.",
+                "Documentation": "Uses\u00c2\u00a0PowerShell\u00c2\u00a0to\u00c2\u00a0simple\u00c2\u00a0get\u00c2\u00a0present\u00c2\u00a0UTC\u00c2\u00a0time\u00c2\u00a0inn\u00c2\u00a0RFC3339\u00c2\u00a0format.",
+                "Metadata": {},
+                "OutputDefs": [
+                    {
+                        "Name": "UtcTime",
+                        "Type": "Timestamp",
+                        "Summary": "UTC Time in RFC3339 format"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "StatelessCodePart",
+                    "Interpreter": "PowerShell",
+                    "Command": "./GetUtcTime.ps1"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Core/GetUtcTime"
+            },
+            "Id": "Step_1",
+            "_LogEndpoint_": "c:\\JohnLogs\\Step_1.Core.GetUtcTime\\step_details_Step_1.Core.GetUtcTime_Details.log",
+            "StartCommand": "PowerShell  -Command  ./GetUtcTime.ps1  -_LogEndpoint_ 'c:\\JohnLogs\\Step_1.Core.GetUtcTime\\step_details_Step_1.Core.GetUtcTime_Details.log' "
+        },
+        {
+            "Path": "{CODEPARTS}/Actions/Log/Log.json",
+            "Documentation": "Log start message",
+            "InputVals": {
+                "Message": "First Time - $FirstTime",
+                "LogLevel": "INFO"
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Actions.Log",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Log Message to the standard logging inerface",
+                "Documentation": "Logs a user defined message to the log file.",
+                "Metadata": {},
+                "InputDefs": [
+                    {
+                        "Name": "Message",
+                        "Type": "String",
+                        "Summary": "Logging Message - usually variable output of Code Part"
+                    },
+                    {
+                        "Name": "LogLevel",
+                        "Type": "String",
+                        "Summary": "Logging Level - DEBUG, INFO, WARNING, ERROR, FATAL, INFO is default"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "LeoProcessor",
+                    "Interpreter": "LeoProcessor",
+                    "Command": "LogMessage"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Actions/Log"
+            },
+            "Id": "Step_2",
+            "_LogEndpoint_": "c:\\JohnLogs\\Step_2.Actions.Log\\step_details_Step_2.Actions.Log_Details.log",
+            "OutputVals": {
+                "_StatusCode_": "OK",
+                "_StatusMessage_": "",
+                "_ElapsedTime_": "0.00"
+            },
+            "StartCommand": "Leo Engine Action: LogMessage"
+        },
+        {
+            "Path": "{CODEPARTS}/Actions/Stop/Stop.json",
+            "Documentation": "Simulates a Planned Reboot",
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Actions.Stop",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Reboot Simulator",
+                "Documentation": "Reboot Simulator",
+                "Metadata": {},
+                "Interrupting": "Stop",
+                "InputDefs": [
+                    {
+                        "Name": "StopAction",
+                        "Type": "String",
+                        "Summary": "Used to specify a mode - Future. StopProcessor(default), SoftReset, HardReset"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "LeoProcessor",
+                    "Interpreter": "LeoProcessor",
+                    "Command": "Stop"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Actions/Stop"
+            },
+            "Id": "Step_3",
+            "_LogEndpoint_": "c:\\JohnLogs\\Step_3.Actions.Stop\\step_details_Step_3.Actions.Stop_Details.log",
+            "OutputVals": {},
+            "StartCommand": "Leo Engine Action: Stop"
+        },
+        {
+            "Path": "{CODEPARTS}/Core/GetUtcTime/GetUtcTime.json",
+            "Documentation": "Get Test Start Time in UTC",
+            "OutputVals": {
+                "UtcTime": "$SecondTime"
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Core.GetUtcTime",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Get UTC Time now in RFC3339 format.",
+                "Documentation": "Uses\u00c2\u00a0PowerShell\u00c2\u00a0to\u00c2\u00a0simple\u00c2\u00a0get\u00c2\u00a0present\u00c2\u00a0UTC\u00c2\u00a0time\u00c2\u00a0inn\u00c2\u00a0RFC3339\u00c2\u00a0format.",
+                "Metadata": {},
+                "OutputDefs": [
+                    {
+                        "Name": "UtcTime",
+                        "Type": "Timestamp",
+                        "Summary": "UTC Time in RFC3339 format"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "StatelessCodePart",
+                    "Interpreter": "PowerShell",
+                    "Command": "./GetUtcTime.ps1"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Core/GetUtcTime"
+            },
+            "Id": "Step_4"
+        },
+        {
+            "Path": "{CODEPARTS}/Actions/Log/Log.json",
+            "Documentation": "Log start message",
+            "InputVals": {
+                "Message": "SecondTime  - $SecondTime",
+                "LogLevel": "INFO"
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Actions.Log",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Log Message to the standard logging inerface",
+                "Documentation": "Logs a user defined message to the log file.",
+                "Metadata": {},
+                "InputDefs": [
+                    {
+                        "Name": "Message",
+                        "Type": "String",
+                        "Summary": "Logging Message - usually variable output of Code Part"
+                    },
+                    {
+                        "Name": "LogLevel",
+                        "Type": "String",
+                        "Summary": "Logging Level - DEBUG, INFO, WARNING, ERROR, FATAL, INFO is default"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "LeoProcessor",
+                    "Interpreter": "LeoProcessor",
+                    "Command": "LogMessage"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Actions/Log"
+            },
+            "Id": "Step_5"
+        },
+        {
+            "Path": "{CODEPARTS}/Actions/Stop/Stop.json",
+            "Documentation": "Simulates a Planned Reboot",
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Actions.Stop",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Reboot Simulator",
+                "Documentation": "Reboot Simulator",
+                "Metadata": {},
+                "Interrupting": "Stop",
+                "InputDefs": [
+                    {
+                        "Name": "StopAction",
+                        "Type": "String",
+                        "Summary": "Used to specify a mode - Future. StopProcessor(default), SoftReset, HardReset"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "LeoProcessor",
+                    "Interpreter": "LeoProcessor",
+                    "Command": "Stop"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Actions/Stop"
+            },
+            "Id": "Step_6"
+        },
+        {
+            "Path": "{CODEPARTS}/Core/GetUtcTime/GetUtcTime.json",
+            "Documentation": "Get Test Start Time in UTC",
+            "OutputVals": {
+                "UtcTime": "$ThirdTime"
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Core.GetUtcTime",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Get UTC Time now in RFC3339 format.",
+                "Documentation": "Uses\u00c2\u00a0PowerShell\u00c2\u00a0to\u00c2\u00a0simple\u00c2\u00a0get\u00c2\u00a0present\u00c2\u00a0UTC\u00c2\u00a0time\u00c2\u00a0inn\u00c2\u00a0RFC3339\u00c2\u00a0format.",
+                "Metadata": {},
+                "OutputDefs": [
+                    {
+                        "Name": "UtcTime",
+                        "Type": "Timestamp",
+                        "Summary": "UTC Time in RFC3339 format"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "StatelessCodePart",
+                    "Interpreter": "PowerShell",
+                    "Command": "./GetUtcTime.ps1"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Core/GetUtcTime"
+            },
+            "Id": "Step_7"
+        },
+        {
+            "Path": "{CODEPARTS}/Actions/Log/Log.json",
+            "Documentation": "Log start message",
+            "InputVals": {
+                "Message": "First Time - $FirstTime",
+                "LogLevel": "INFO"
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Actions.Log",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Log Message to the standard logging inerface",
+                "Documentation": "Logs a user defined message to the log file.",
+                "Metadata": {},
+                "InputDefs": [
+                    {
+                        "Name": "Message",
+                        "Type": "String",
+                        "Summary": "Logging Message - usually variable output of Code Part"
+                    },
+                    {
+                        "Name": "LogLevel",
+                        "Type": "String",
+                        "Summary": "Logging Level - DEBUG, INFO, WARNING, ERROR, FATAL, INFO is default"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "LeoProcessor",
+                    "Interpreter": "LeoProcessor",
+                    "Command": "LogMessage"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Actions/Log"
+            },
+            "Id": "Step_8"
+        },
+        {
+            "Path": "{CODEPARTS}/Actions/Log/Log.json",
+            "Documentation": "Log start message",
+            "InputVals": {
+                "Message": "SecondTime  - $SecondTime",
+                "LogLevel": "INFO"
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Actions.Log",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Log Message to the standard logging inerface",
+                "Documentation": "Logs a user defined message to the log file.",
+                "Metadata": {},
+                "InputDefs": [
+                    {
+                        "Name": "Message",
+                        "Type": "String",
+                        "Summary": "Logging Message - usually variable output of Code Part"
+                    },
+                    {
+                        "Name": "LogLevel",
+                        "Type": "String",
+                        "Summary": "Logging Level - DEBUG, INFO, WARNING, ERROR, FATAL, INFO is default"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "LeoProcessor",
+                    "Interpreter": "LeoProcessor",
+                    "Command": "LogMessage"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Actions/Log"
+            },
+            "Id": "Step_9"
+        },
+        {
+            "Path": "{CODEPARTS}/Actions/Log/Log.json",
+            "Documentation": "Log start message",
+            "InputVals": {
+                "Message": "ThirdTime  - $ThirdTime",
+                "LogLevel": "INFO"
+            },
+            "CodePart": {
+                "$schema": "https://rc.crc.azure.com/crc/bricks/json-schema/draft-1/CodePart",
+                "Name": "Actions.Log",
+                "Version": "0.0.1",
+                "SupportContact": "crcbricksup@microsoft.com",
+                "Summary": "Log Message to the standard logging inerface",
+                "Documentation": "Logs a user defined message to the log file.",
+                "Metadata": {},
+                "InputDefs": [
+                    {
+                        "Name": "Message",
+                        "Type": "String",
+                        "Summary": "Logging Message - usually variable output of Code Part"
+                    },
+                    {
+                        "Name": "LogLevel",
+                        "Type": "String",
+                        "Summary": "Logging Level - DEBUG, INFO, WARNING, ERROR, FATAL, INFO is default"
+                    }
+                ],
+                "Start": {
+                    "ExecutionContext": "LeoProcessor",
+                    "Interpreter": "LeoProcessor",
+                    "Command": "LogMessage"
+                },
+                "homeDir": "C:\\MyBranch\\CRC-ACC\\src2\\Leo\\CodeParts/Actions/Log"
+            },
+            "Id": "Step_10"
+        }
+    ],
+    "_StatusCode_": "OK",
+    "_LogEndPoint_": "c:\\JohnLogs\\JohnsLog.log",
+    "Path": "..\\Samples\\TestCases\\CycleDemo.json",
+    "ProgressFile": "c:\\JohnLogs\\CycleDemo-progress.json",
+    "_SummaryLogEndPoint_": "c:\\JohnLogs\\Summary-CycleDemo.log",
+    "SessionVars": {
+        "$_LogEndpoint_.Directory": [
+            "Path",
+            "c:\\JohnLogs\\Step_3.Actions.Stop",
+            "Control"
+        ],
+        "$_LogEndpoint_.Filename": [
+            "Path",
+            "step_details_Step_3.Actions.Stop_Details.log",
+            "Control"
+        ],
+        "$_LogEndpoint_": [
+            "Path",
+            "c:\\JohnLogs\\Step_3.Actions.Stop\\step_details_Step_3.Actions.Stop_Details.log",
+            "Control"
+        ],
+        "$FirstTime": [
+            "Timestamp",
+            "2021-06-10T20:05:21.9606094Z",
+            "Step"
+        ]
+    }
+}

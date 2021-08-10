@@ -1,0 +1,43 @@
+MACHINE DETAILS
+
+Platform:Windows
+Platform-version:10.0.19041
+Architecture:AMD64
+Hostname:AL2411P
+Processor:Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+
+TEST CASE SUMMARY
+
+Test Case Name: CycleDemo
+Test Case Path: ..\Samples\TestCases\CycleDemo.json
+
+-------------
+Step_1
+-------------
+Name      :  Core.GetUtcTime
+Command   :  PowerShell  -Command  ./GetUtcTime.ps1  -_LogEndpoint_ 'c:\JohnLogs\Step_1.Core.GetUtcTime\step_details_Step_1.Core.GetUtcTime_Details.log' 
+Timeout   :  N/A
+
+Log Directory:   file:///c:/JohnLogs/Step_1.Core.GetUtcTime
+
+[END Step]  Result: STEP PASSED
+            Elapsed Time: 0.50
+
+-------------
+Step_2
+-------------
+Name      :  Actions.Log
+Command   :  Leo Engine Action: LogMessage
+Timeout   :  N/A
+
+Log Directory:   file:///c:/JohnLogs/Step_2.Actions.Log
+
+[END Step]  Result: STEP PASSED
+            Elapsed Time: 0.00
+
+-------------
+Step_3
+-------------
+Name      :  Actions.Stop
+Command   :  Leo Engine Action: Stop
+Timeout   :  N/A

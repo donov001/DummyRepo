@@ -1,0 +1,7 @@
+2021-06-10 20:05:21Z : INFO : LeoProcessor.py : Line:154 : This test is Interrupting - To Resume: py LeoProcessor.py --Resume c:\JohnLogs\CycleDemo-progress.json
+2021-06-10 20:05:21Z : INFO : LeoProcessor.py : Line:157 : Starting test Case ..\Samples\TestCases\CycleDemo.json
+2021-06-10 20:05:21Z : INFO : engine.py : Line:366 : Step_1  of 10 - CommandLine == 'PowerShell  -Command  ./GetUtcTime.ps1  -_LogEndpoint_ 'c:\JohnLogs\Step_1.Core.GetUtcTime\step_details_Step_1.Core.GetUtcTime_Details.log' '
+2021-06-10 20:05:22Z : INFO : engine.py : Line:356 : Step_2  of 10 - Engine Action == 'LogMessage'
+2021-06-10 20:05:22Z : INFO : ProcessorActions.py : Line:165 : TestCase : First Time - 2021-06-10T20:05:21.9606094Z
+2021-06-10 20:05:22Z : INFO : engine.py : Line:356 : Step_3  of 10 - Engine Action == 'Stop'
+2021-06-10 20:05:22Z : INFO : ProcessorActions.py : Line:82 : TO RESUME: py LeoProcessor.py --Resume c:\JohnLogs\CycleDemo-progress.json
